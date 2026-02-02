@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
+
   const name = localStorage.getItem("name") || "User";
   const email = localStorage.getItem("email") || "No email";
 
@@ -29,9 +32,10 @@ const Profile = () => {
                 </p>
               </div>
 
+              {/* ✅ FIXED BUTTON */}
               <button
                 className="btn btn-outline-primary mt-3 w-100"
-                onClick={() => (window.location.href = "/edit-profile")}
+                onClick={() => navigate("/edit-profile")}
               >
                 ✏️ Edit Profile
               </button>
