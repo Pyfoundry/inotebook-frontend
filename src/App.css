@@ -1,0 +1,1282 @@
+/* ========================= */
+/* 🌗 THEME VARIABLES */
+/* ========================= */
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111827;
+  --card-bg: #f8f9fa;
+  --border-color: #e5e7eb;
+  --primary-color: #0d6efd;
+}
+
+body[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --text-color: #e5e7eb;
+  --card-bg: #1e293b;
+  --border-color: #334155;
+  --primary-color: #3b82f6;
+}
+
+/* ========================= */
+/* 🌍 GLOBAL STYLES */
+/* ========================= */
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
+/* ========================= */
+/* 🧱 CARDS / CONTAINERS */
+/* ========================= */
+
+.card,
+.container {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+}
+
+/* ========================= */
+/* ✨ HOVER EFFECTS */
+/* ========================= */
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
+}
+
+/* ========================= */
+/* 🔐 LOGIN / SIGNUP */
+/* ========================= */
+
+.login-card,
+.signup-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.login-card:hover,
+.signup-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* ========================= */
+/* 🔘 BUTTONS */
+/* ========================= */
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(13, 110, 253, 0.4);
+}
+
+/* ========================= */
+/* 🚨 ALERTS */
+/* ========================= */
+
+.alert-modern {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1050;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 500;
+  animation: slideFade 0.4s ease;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================= */
+/* 🌗 NAVBAR THEME SUPPORT */
+/* ========================= */
+
+.custom-navbar {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-navbar .nav-link,
+.custom-navbar .navbar-brand {
+  color: var(--text-color) !important;
+}
+
+.custom-navbar .nav-link.active {
+  font-weight: 600;
+  color: var(--primary-color) !important;
+}
+
+/* ========================= */
+/* 👤 AVATAR */
+/* ========================= */
+
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================= */
+/* 🌙☀️ TOGGLE BUTTON */
+/* ========================= */
+
+.theme-toggle {
+  border: none;
+  background: var(--card-bg);
+  color: var(--text-color);
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg) scale(1.1);
+  background: var(--border-color);
+}
+/* ========================= */
+/* 📝 SIGNUP PAGE POLISH */
+/* ========================= */
+
+.signup-page {
+  min-height: calc(100vh - 80px);
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signup-card h2 {
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.modern-input {
+  background: transparent;
+  color: var(--text-color);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  padding: 10px 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modern-input::placeholder {
+  color: #9ca3af;
+}
+
+.modern-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.signup-btn {
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+/* ========================= */
+/* 🧊 GLASSMORPHISM CARD */
+/* ========================= */
+
+.glass-card {
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+body[data-theme="dark"] .glass-card {
+  background: rgba(30, 41, 59, 0.75);
+}
+
+/* Floating inputs polish */
+.form-control {
+  border-radius: 12px;
+}
+
+.form-floating > label {
+  color: #6b7280;
+}
+/* Password strength bar */
+.password-strength-bar {
+  height: 6px;
+  background-color: var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.password-strength-bar .strength {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.strength-0 { background-color: #e5e7eb; }
+.strength-1 { background-color: #f87171; }
+.strength-2 { background-color: #fbbf24; }
+.strength-3 { background-color: #60a5fa; }
+.strength-4 { background-color: #22c55e; }
+
+/* Eye toggle pointer already styled in Login.js */
+/* Animated gradient password strength */
+.password-strength-bar .strength {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+  background: linear-gradient(90deg, #f87171, #fbbf24, #60a5fa, #22c55e);
+  background-size: 400% 100%;
+  animation: gradientShift 2s ease infinite;
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Optional: pulse effect when strength increases */
+.password-strength-bar .strength-1,
+.password-strength-bar .strength-2,
+.password-strength-bar .strength-3,
+.password-strength-bar .strength-4 {
+  animation: gradientPulse 1.5s ease infinite;
+}
+
+@keyframes gradientPulse {
+  0%, 100% { transform: scaleX(1); opacity: 0.8; }
+  50% { transform: scaleX(1.05); opacity: 1; }
+}
+/* Password strength bar */
+.password-strength-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+/* Dynamic gradient already added in previous step */
+.strength {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+  background: linear-gradient(90deg, #f87171, #fbbf24, #60a5fa, #22c55e);
+  background-size: 400% 100%;
+  animation: gradientShift 2s ease infinite;
+}
+
+/* Tooltip text above bar */
+.strength-tooltip {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+/* Eye toggle button inside password field */
+.password-eye {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Password strength bar */
+.password-strength-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Animated gradient bar */
+.strength {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+  background: linear-gradient(
+    90deg,
+    #f87171,
+    #fbbf24,
+    #60a5fa,
+    #22c55e
+  );
+  background-size: 400% 100%;
+  animation: gradientShift 2s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Tooltip */
+.strength-tooltip {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+/* ========================= */
+/* 🚀 LOGIN SUCCESS TOAST / ALERT */
+/* ========================= */
+
+.alert-modern {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  z-index: 1050;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-weight: 500;
+  color: white;
+  min-width: 220px;
+  text-align: center;
+  opacity: 0;
+  animation: slideIn 0.5s forwards, fadeOut 0.5s 2s forwards;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.alert-modern-success {
+  background-color: #22c55e; /* green */
+}
+
+.alert-modern-danger {
+  background-color: #ef4444; /* red */
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+/* ========================= */
+/* 🔄 BUTTON LOADING SPINNER */
+/* ========================= */
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================= */
+/* 💥 RIPPLE EFFECT */
+/* ========================= */
+
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 11%);
+  transform: scale(10);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+
+.ripple-btn:active::after {
+  transform: scale(0);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* ========================= */
+/* 😈 ERROR SHAKE */
+/* ========================= */
+
+.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+/* ========================= */
+/* 🔄 LOADING SPINNER */
+/* ========================= */
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================= */
+/* 🌊 BUTTON RIPPLE */
+/* ========================= */
+
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 10%, transparent 11%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ripple-btn:active::after {
+  opacity: 1;
+}
+
+/* ========================= */
+/* 😈 ERROR SHAKE */
+/* ========================= */
+
+.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+/* ========================= */
+/* 👁️ PASSWORD EYE */
+/* ========================= */
+
+.password-eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* ========================= */
+/* 🔐 PASSWORD STRENGTH */
+/* ========================= */
+
+.password-strength-bar {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.strength {
+  height: 100%;
+  transition: width 0.3s;
+}
+
+.strength-1 { background: #ef4444; }
+.strength-2 { background: #f59e0b; }
+.strength-3 { background: #22c55e; }
+.strength-4 { background: #16a34a; }
+
+.strength-tooltip {
+  font-size: 0.8rem;
+  margin-top: 4px;
+  color: #6b7280;
+}
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 576px) {
+  .login-card,
+  .signup-card {
+    margin: 0 12px;
+    padding: 20px;
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+/* 😈 SHAKE ANIMATION */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.4s;
+}
+
+/* ⏳ SPINNER */
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 🌙 DARK MODE CARD SHADOW */ 
+body[data-theme="dark"] .login-card,
+body[data-theme="dark"] .signup-card {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+/* ========================= */
+/* 👤 PROFILE PAGE */
+/* ========================= */
+
+.profile-card {
+  border-radius: 18px;
+  animation: fadeUp 0.4s ease;
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-info {
+  border-top: 1px solid var(--border-color);
+  margin-top: 16px;
+  padding-top: 12px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-weight: 500;
+}
+/* ===== USER DROPDOWN FIX ===== */
+
+.user-dropdown {
+  min-width: 220px;
+  right: 0 !important;
+  left: auto !important;
+  top: 110%;
+  border-radius: 12px;
+}
+
+/* avatar circle */
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0d6efd;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* mobile fix */
+@media (max-width: 768px) {
+  .user-dropdown {
+    right: 10px !important;
+    left: auto !important;
+  }
+}
+
+/* ===== PROFILE PAGE ===== */
+
+.profile-page {
+  border-radius: 18px;
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0d6efd, #6610f2);
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 50%;
+  bottom: -4px;
+  background: #0d6efd;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+.avatar-circle {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar-circle:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+.theme-toggle {
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg) scale(1.1);
+}
+.profile-page {
+  border-radius: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-page:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Input focus effect */
+.profile-page input:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}
+/* Hero Section */
+.hero-section {
+  position: relative;
+  padding: 4rem 2rem;
+  overflow: hidden;
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
+}
+
+.hero-section .lead {
+  font-size: 1.25rem;
+}
+
+/* Floating icons animation */
+.floating-icons {
+  position: relative;
+  height: 60px;
+  margin-top: 2rem;
+}
+
+.floating-icons .icon {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-icons .icon:nth-child(2) { animation-delay: 0.3s; }
+.floating-icons .icon:nth-child(3) { animation-delay: 0.6s; }
+.floating-icons .icon:nth-child(4) { animation-delay: 0.9s; }
+.floating-icons .icon:nth-child(5) { animation-delay: 1.2s; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body[data-theme="dark"] .glass-card {
+  background: rgba(30, 41, 59, 0.75);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Feature items hover */
+.feature-item {
+  transition: transform 0.2s ease, background 0.2s ease;
+  border-radius: 8px;
+}
+
+.feature-item:hover {
+  transform: translateX(6px);
+  background: rgba(13, 110, 253, 0.05);
+}
+
+/* Technology badges */
+.tech-badge {
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+/* Hero Section */
+.hero-section {
+  position: relative;
+  padding: 4rem 2rem;
+  overflow: hidden;
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
+}
+
+.hero-section .lead {
+  font-size: 1.25rem;
+}
+
+/* Floating icons animation */
+.floating-icons {
+  position: relative;
+  height: 60px;
+  margin-top: 2rem;
+}
+
+.floating-icons .icon {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-icons .icon:nth-child(2) { animation-delay: 0.3s; }
+.floating-icons .icon:nth-child(3) { animation-delay: 0.6s; }
+.floating-icons .icon:nth-child(4) { animation-delay: 0.9s; }
+.floating-icons .icon:nth-child(5) { animation-delay: 1.2s; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body[data-theme="dark"] .glass-card {
+  background: rgba(30, 41, 59, 0.75);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Feature items hover */
+.feature-item {
+  transition: transform 0.2s ease, background 0.2s ease;
+  border-radius: 8px;
+}
+
+.feature-item:hover {
+  transform: translateX(6px);
+  background: rgba(13, 110, 253, 0.05);
+}
+
+/* Technology badges */
+.tech-badge {
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* 🌥️ Cloud animation */
+.clouds {
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.clouds .cloud {
+  font-size: 2.5rem;
+  position: absolute;
+  animation: cloud-move linear infinite;
+  opacity: 0.6;
+}
+
+.clouds .cloud:nth-child(1) { top: 10%; animation-duration: 25s; left: -10%; }
+.clouds .cloud:nth-child(2) { top: 30%; animation-duration: 35s; left: -20%; }
+.clouds .cloud:nth-child(3) { top: 50%; animation-duration: 30s; left: -15%; }
+
+@keyframes cloud-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(120vw); }
+}
+/* Animate writing line */
+.writing-line {
+  animation: write-line 2s ease-in-out infinite;
+}
+
+@keyframes write-line {
+  0% { stroke-dashoffset: 32; }
+  50% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 32; }
+}
+
+/* Animate pen movement */
+.pen {
+  transform-origin: bottom center;
+  animation: pen-move 2s ease-in-out infinite;
+}
+
+.pen-tip {
+  transform-origin: bottom center;
+  animation: pen-move 2s ease-in-out infinite;
+}
+
+@keyframes pen-move {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+/* Floating Notebook + Pen */
+.floating-svg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(20%, -20%);
+  animation: float-svg 4s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes float-svg {
+  0% { transform: translate(20%, -20%) translateY(0); }
+  50% { transform: translate(20%, -20%) translateY(-15px) rotate(-2deg); }
+  100% { transform: translate(20%, -20%) translateY(0) rotate(2deg); }
+}
+
+/* Make responsive */
+@media (max-width: 768px) {
+  .floating-svg {
+    display: none; /* hide on mobile for cleanliness */
+  }
+}
+/* =========================
+   🌙 DARK MODE FOR NAVBAR
+   ========================= */
+
+body[data-theme="dark"] .custom-navbar {
+  background-color: #181818 !important;
+  color: #ffffff;
+  border-bottom: 1px solid #333;
+}
+
+body[data-theme="dark"] .custom-navbar .navbar-brand,
+body[data-theme="dark"] .custom-navbar .nav-link {
+  color: #e0e0e0 !important;
+}
+
+body[data-theme="dark"] .custom-navbar .nav-link.active {
+  color: #90caf9 !important;
+}
+
+body[data-theme="dark"] .custom-navbar .btn-outline-secondary {
+  color: #ffffff;
+  border-color: #555;
+}
+
+body[data-theme="dark"] .custom-navbar .btn-outline-secondary:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+body[data-theme="dark"] .custom-navbar .btn-primary {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+
+body[data-theme="dark"] .avatar-circle {
+  background-color: #333;
+  color: #fff;
+}
+/* =========================
+   🌙 DARK MODE FOR ABOUT PAGE
+   ========================= */
+
+body[data-theme="dark"] .hero-section h1,
+body[data-theme="dark"] .hero-section p {
+  color: #f1f1f1 !important;
+}
+
+body[data-theme="dark"] .text-muted {
+  color: #cfcfcf !important;
+}
+
+body[data-theme="dark"] .card,
+body[data-theme="dark"] .glass-card {
+  background: rgba(30, 30, 30, 0.9) !important;
+  color: #ffffff;
+}
+
+body[data-theme="dark"] .list-group-item {
+  background-color: transparent !important;
+  color: #eaeaea !important;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body[data-theme="dark"] hr {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body[data-theme="dark"] .feature-item {
+  color: #f0f0f0 !important;
+}
+
+body[data-theme="dark"] .badge {
+  color: #ffffff !important;
+}
+/* =========================
+   🌙 GLOBAL DARK MODE
+   ========================= */
+body[data-theme="dark"] {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body[data-theme="dark"] input,
+body[data-theme="dark"] textarea,
+body[data-theme="dark"] select {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+body[data-theme="dark"] a {
+  color: #90caf9;
+}
+/* =========================
+   🌙 DARK MODE FOR NAVBAR DROPDOWN
+   ========================= */
+body[data-theme="dark"] .user-dropdown {
+  background-color: #1e1e1e !important; /* Dark background */
+  color: #ffffff !important; /* White text */
+}
+
+body[data-theme="dark"] .user-dropdown .dropdown-item {
+  color: #ffffff !important; /* Make items readable */
+}
+
+body[data-theme="dark"] .user-dropdown .dropdown-item:hover {
+  background-color: #333 !important; /* Hover effect */
+  color: #fff !important;
+}
+
+body[data-theme="dark"] .user-dropdown hr {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body[data-theme="dark"] .user-dropdown small.text-muted {
+  color: #cfcfcf !important;
+}
+/* Avatar Circle */
+.avatar-circle {
+  width: 35px;
+  height: 35px;
+  background-color: #6c757d; /* dark gray background for visibility */
+  color: #fff; /* white text */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Username next to avatar */
+.nav-item .dropdown-toggle span {
+  color: #fff; /* white text so it shows on dark navbar */
+}
+
+/* Optional: make dropdown arrow visible */
+.navbar .dropdown-toggle::after {
+  border-top: 0.4em solid #fff;
+}
+/* --------------------- Navbar General --------------------- */
+.custom-navbar {
+  background-color: var(--navbar-bg, #f8f9fa);
+  color: var(--navbar-text, #000);
+}
+
+/* Navbar links */
+.custom-navbar .nav-link {
+  color: var(--navbar-text, #000);
+}
+.custom-navbar .nav-link.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* --------------------- Avatar Circle --------------------- */
+.avatar-circle {
+  width: 35px;
+  height: 35px;
+  background-color: #6c757d; /* visible gray */
+  color: #fff; /* white text */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Username text next to avatar */
+.nav-item .dropdown-toggle span {
+  color: var(--navbar-text, #000); /* visible text */
+}
+
+/* Dropdown menu */
+.user-dropdown {
+  min-width: 200px;
+}
+
+/* Divider styling */
+.user-dropdown .dropdown-divider {
+  border-top: 1px solid #dee2e6;
+}
+
+/* Logout button red text */
+.user-dropdown .text-danger {
+  color: #dc3545 !important;
+}
+
+/* --------------------- Theme Toggle Button --------------------- */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* --------------------- Dark Mode --------------------- */
+body[data-theme="dark"] .custom-navbar {
+  background-color: #212529; /* dark navbar */
+  color: #fff;
+}
+
+body[data-theme="dark"] .custom-navbar .nav-link {
+  color: #fff;
+}
+
+body[data-theme="dark"] .nav-item .dropdown-toggle span {
+  color: #fff; /* username visible */
+}
+
+body[data-theme="dark"] .avatar-circle {
+  background-color: #495057; /* dark gray avatar */
+  color: #fff;
+}
+
+body[data-theme="dark"] .user-dropdown {
+  background-color: #343a40;
+  color: #fff;
+}
+
+body[data-theme="dark"] .user-dropdown .dropdown-item {
+  color: #fff;
+}
+
+body[data-theme="dark"] .user-dropdown .dropdown-divider {
+  border-top: 1px solid #495057;
+}
+/* --------------------- Avatar + Username Alignment --------------------- */
+.nav-item.dropdown.position-relative {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* spacing between avatar and username */
+}
+
+/* Avatar circle sizing */
+.avatar-circle {
+  width: 40px;       /* slightly bigger */
+  height: 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Username styling next to avatar */
+.nav-item .dropdown-toggle span {
+  display: inline-block;
+  max-width: 120px;   /* prevent overflow */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--navbar-text, #000);
+  font-weight: 500;
+}
+
+/* Theme toggle button spacing */
+.theme-toggle {
+  margin-right: 0.5rem;
+  font-size: 1.3rem;
+}
+
+/* Adjust navbar right-side items */
+.d-flex.align-items-center.gap-3 {
+  align-items: center;
+  gap: 0.8rem; /* a bit more breathing room */
+}
+
+/* Responsive: hide username on small screens */
+@media (max-width: 768px) {
+  .nav-item .dropdown-toggle span {
+    display: none;
+  }
+}
