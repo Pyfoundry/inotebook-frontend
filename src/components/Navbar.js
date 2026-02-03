@@ -15,14 +15,15 @@ const Navbar = ({ theme, toggleTheme }) => {
       setUserName(localStorage.getItem("name") || "User");
       setUserEmail(localStorage.getItem("email") || "");
     };
-    window.addEventListener("storage", syncUser);
-    return () => window.removeEventListener("storage", syncUser);
+    syncUser();
+    window.addEventListener("userChanged", syncUser);
+
+    return () => window.removeEventListener("userChanged", syncUser);
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("name");
-    localStorage.removeItem("email");
+    localStorage.clear();
+    window.dispatchEvent(new Event("userChanged")); // ⭐
     navigate("/login");
   };
 

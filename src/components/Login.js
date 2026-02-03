@@ -73,6 +73,10 @@ const Login = (props) => {
         localStorage.setItem("token", json.authToken);
         localStorage.setItem("name", json.user?.name || "User");
         localStorage.setItem("email", json.user?.email || credentials.email);
+        console.log("LOGIN RESPONSE:", json);
+
+        // ⭐ ADD THIS LINE
+        window.dispatchEvent(new Event("userChanged"));
 
         rememberMe
           ? localStorage.setItem("rememberEmail", credentials.email)
