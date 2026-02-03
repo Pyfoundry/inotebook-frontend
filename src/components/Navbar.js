@@ -15,11 +15,12 @@ const Navbar = ({ theme, toggleTheme }) => {
       setUserName(localStorage.getItem("name") || "User");
       setUserEmail(localStorage.getItem("email") || "");
     };
-    syncUser();
-    window.addEventListener("userChanged", syncUser);
-
-    return () => window.removeEventListener("userChanged", syncUser);
+    window.addEventListener("storage", syncUser);
+    return () => window.removeEventListener("storage", syncUser);
   }, []);
+
+  // Then you can conditionally render
+  if (location.pathname === "/") return null;
 
   const handleLogout = () => {
     localStorage.clear();
