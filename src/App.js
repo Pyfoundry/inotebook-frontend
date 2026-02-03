@@ -5,6 +5,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 
 import FrontPage from "./components/FrontPage";
@@ -18,7 +19,27 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import NoteState from "./context/notes/NoteState";
 
+/* 🔐 AUTH WRAPPER */
+const RequireAuth = ({ children }) => {
+  const token = localStorage.getItem("token");
+  return token ? children : <Navigate to="/login" replace />;
+};
+
+/* 🧭 NAVBAR CONTROLLER */
+const Layout = ({ children, theme, toggleTheme }) => {
+  const location = useLocation();
+  const hideNavbar = location.pathname === "/";
+
+  return (
+    <>
+      {!hideNavbar && <Navbar theme={theme} toggleTheme={toggleTheme} />}
+      {children}
+    </>
+  );
+};
+
 function App() {
+  /* 🌗 THEME */
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
@@ -35,6 +56,7 @@ function App() {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
+  /* 🚨 ALERT */
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -42,57 +64,70 @@ function App() {
     setTimeout(() => setAlert(null), 2500);
   };
 
-  const RequireAuth = ({ children }) => {
-    const token = localStorage.getItem("token");
-    return token ? children : <Navigate to="/login" />;
-  };
-
   return (
     <NoteState>
       <Router>
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
-        <Alert alert={alert} />
+        <Layout theme={theme} toggleTheme={toggleTheme}>
+          <Alert alert={alert} />
 
-        <Routes>
-          {/* 🌟 LANDING PAGE */}
-          <Route path="/" element={<FrontPage />} />
+          <Routes>
+            {/* 🌟 LANDING */}
+            <Route
+              path="/"
+              element={
+                localStorage.getItem("token") ? (
+                  <Navigate to="/home" replace />
+                ) : (
+                  <FrontPage />
+                )
+              }
+            />
 
-          {/* 🔐 PROTECTED */}
-          <Route
-            path="/home"
-            element={
-              <RequireAuth>
-                <Home showAlert={showAlert} />
-              </RequireAuth>
-            }
-          />
+            {/* 🌍 PUBLIC */}
+            <Route path="/login" element={<Login showAlert={showAlert} />} />
+            <Route path="/signup" element={<Signup showAlert={showAlert} />} />
 
-          <Route
-            path="/about"
-            element={
-              <RequireAuth>
-                <About />
-              </RequireAuth>
-            }
-          />
+            {/* 🔐 PROTECTED */}
+            <Route
+              path="/home"
+              element={
+                <RequireAuth>
+                  <Home showAlert={showAlert} />
+                </RequireAuth>
+              }
+            />
 
-          <Route path="/edit-profile" element={<EditProfile />} />
+            <Route
+              path="/about"
+              element={
+                <RequireAuth>
+                  <About />
+                </RequireAuth>
+              }
+            />
 
-          {/* 🌍 PUBLIC */}
-          <Route path="/login" element={<Login showAlert={showAlert} />} />
-          <Route path="/signup" element={<Signup showAlert={showAlert} />} />
+            <Route
+              path="/profile"
+              element={
+                <RequireAuth>
+                  <Profile />
+                </RequireAuth>
+              }
+            />
 
-          <Route
-            path="/profile"
-            element={
-              <RequireAuth>
-                <Profile />
-              </RequireAuth>
-            }
-          />
+            <Route
+              path="/edit-profile"
+              element={
+                <RequireAuth>
+                  <EditProfile />
+                </RequireAuth>
+              }
+            />
 
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+            {/* ❌ FALLBACK */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Layout>
       </Router>
     </NoteState>
   );

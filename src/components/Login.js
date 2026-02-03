@@ -85,7 +85,7 @@ const Login = (props) => {
         props.showAlert("Login Successful 🎉", "success");
         setLoginSuccess(true);
 
-        setTimeout(() => navigate("/"), 900);
+        setTimeout(() => navigate("/home"), 900);
       } else {
         throw new Error();
       }
